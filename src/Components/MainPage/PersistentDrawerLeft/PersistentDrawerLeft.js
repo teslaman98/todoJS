@@ -104,7 +104,7 @@ export default function PersistentDrawerLeft() {
   const [open, setOpen] = React.useState(false);
 
 
-  
+
   function handleDrawerOpen() {
     setOpen(true);
   }
@@ -114,7 +114,8 @@ export default function PersistentDrawerLeft() {
   }
 
   return (
-    <div className={classes.root}>
+
+    <div className={clsx(classes.root)}>
       <CssBaseline />
       <AppBar
         position="fixed"
@@ -157,11 +158,11 @@ export default function PersistentDrawerLeft() {
         </div>
         <Divider />
         <List>
-          {["Today", "Warehouse", "Sending", "Packing", "Receiving"].map(
+            {["Today", "Warehouse", "Sending", "Packing", "Receiving"].map(
             (text, index) => (
               <ListItem button key={text}>
                 <ListItemIcon>
-                  [<MailIcon />, ]
+                  <MailIcon />
                 </ListItemIcon>
                 <ListItemText primary={text} />
               </ListItem>

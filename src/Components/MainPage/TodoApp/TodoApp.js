@@ -14,7 +14,10 @@ class TodoApp extends React.Component {
     return (
       <div>
         <AddTodo addTodoFn={this.addTodo} />
-        <TodoList updateTodoFn={this.updateTodo} todos={this.state.todos} />
+        <TodoList
+            updateTodoFn={this.updateTodo}
+            deleteTodoFn={this.deleteTodo}
+            todos={this.state.todos} />
       </div>
     );
   }
@@ -56,6 +59,22 @@ class TodoApp extends React.Component {
     await this.setState({ todos: newTodos });
     localStorage.setItem("todos", JSON.stringify(newTodos));
   };
-}
+  deleteTodo = async todo => {
+    console.log('DELETE FUNCTION')
+    const newTodos = this.state.todos.map(_todo => {
+      if (todo === _todo)
+        return {
+          text: todo.text,
+          completed: !todo.completed
+        };
+      else return _todo;
+    });
+    await this.setState({ todos: newTodos });
+    localStorage.setItem("todos", JSON.stringify(newTodos));
+  };
+
+  };
+
+
 
 export default TodoApp;

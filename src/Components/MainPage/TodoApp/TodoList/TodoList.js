@@ -9,7 +9,11 @@ class TodoList extends React.Component {
       <div className="todoListContainer">
         {todos.map((_todo, index) => {
           return (
-            <TodoItem updateTodoFn={this.updateTodo} todo={_todo} key={index}>
+            <TodoItem
+                updateTodoFn={this.props.updateTodoFn}
+                deleteTodoFn={this.props.deleteTodoFn}
+                todo={_todo}
+                key={index}>
               {" "}
             </TodoItem>
           );
@@ -18,9 +22,8 @@ class TodoList extends React.Component {
     );
   }
 
-  updateTodo = todo => {
+ /* updateTodo = todo => {
     this.props.updateTodoFn(todo);
-  };
+  };*/
 }
-
 export default TodoList;

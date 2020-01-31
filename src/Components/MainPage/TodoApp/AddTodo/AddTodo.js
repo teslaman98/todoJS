@@ -3,6 +3,9 @@ import Paper from "@material-ui/core/Paper";
 import Typography from "@material-ui/core/Typography";
 import Container from "@material-ui/core/Container";
 import { makeStyles } from "@material-ui/core/styles";
+import './style.css';
+import Fab from '@material-ui/core/Fab';
+import AddIcon from '@material-ui/icons/Add';
 
 class AddTodo extends React.Component {
   constructor() {
@@ -16,7 +19,7 @@ class AddTodo extends React.Component {
     return (
       <Container className="formBox" maxWidth="xs">
         <div>
-          <Paper>
+          <Paper className="paperContainer">
             <div className="addTodoContainer">
               <form onSubmit={e => this.submitTodo(e)}>
                 <input
@@ -24,7 +27,9 @@ class AddTodo extends React.Component {
                   onChange={e => this.updateInput(e)}
                   type="text"
                 />
-                <button type="submit">Add Todo</button>
+                <Fab color="primary" aria-label="add" type="submit">
+                  <AddIcon />
+                </Fab>
               </form>
             </div>
           </Paper>
